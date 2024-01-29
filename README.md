@@ -36,3 +36,4 @@ This project, part of the ALX curriculum, involves creating a custom version of 
 ```sh
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
 ```
+
