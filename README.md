@@ -13,6 +13,13 @@ This project, part of the ALX curriculum, involves creating a custom version of 
 - Start Date: Jan 26, 2024
 - End Date: Jan 31, 2024
 
+## Important Requirements
+
+- All your files will be compiled on Ubuntu 20.04 LTS using `gcc`, using the options `-Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format`
+- Your code should use the `Betty` style.
+- No use of the global variables.
+- Maximum 5 functions per file.
+
 ## Implemented Features
 
 - Basic conversion specifiers: `c`, `s`, `%`
