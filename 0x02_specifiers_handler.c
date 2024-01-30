@@ -22,9 +22,10 @@ void c_handler(char c, int *len)
  */
 void s_handler(char *str, int *len)
 {
+	int string_len;
 	if (str == NULL)
 		str = "(null)";
-
-	write(1, str, _strlen(str));
-	(*len) += _strlen(str);
+	string_len = _strlen(str);
+	write(1, str, string_len);
+	(*len) += string_len;
 }
