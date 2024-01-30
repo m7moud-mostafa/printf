@@ -10,40 +10,36 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int *len;
+	int len = 0;
 	int i;
-	int final_length;
 
-	len = malloc(sizeof(int));
-	*len = 0;
 	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			switch (format[i + 1])
+			i++;
+			switch (format[i])
 			{
 			case 'c':
-				c_handler(va_arg(args, int), len);
+				c_handler(va_arg(args, int), &len);
 				break;
 			case 's':
-				s_handler(va_arg(args, char *), len);
+				s_handler(va_arg(args, char *), &len);
 				break;
 			case '%':
-				c_handler('%', len);
+				c_handler('%', &len);
 				break;
 			default:
-				c_handler('%', len);
-				i--;
+				c_handler('%', &len);
+				c_handler(format[i], &len);
 				break;
 			}
-			i++;
+
 		}
 		else
-			c_handler(format[i], len);
+			c_handler(format[i], &len);
 	}
 	va_end(args);
-	final_length = *len;
-	free(len);
-	return (final_length);
+	return (len);
 }
