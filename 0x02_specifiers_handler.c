@@ -14,7 +14,8 @@ void c_handler(char c, int *len)
 }
 
 /**
- * s_handler - handles the s specifier inside (_printf) function (prints strings)
+ * s_handler - handles the s specifier inside
+ *			   (_printf) function (prints strings)
  *
  * @str: string to be printed
  * @len: the printed length counter
@@ -23,7 +24,7 @@ void s_handler(char *str, int *len)
 {
 	if (str == NULL)
 		str = "(null)";
-	
+
 	write(1, str, _strlen(str));
 	(*len) += _strlen(str);
 }
