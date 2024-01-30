@@ -37,6 +37,7 @@ int _printf(const char *format, ...)
 				break;
 			default:
 				c_handler('%', &len);
+				c_handler(format[i], &len);
 				break;
 			}
 
