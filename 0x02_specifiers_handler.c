@@ -23,6 +23,7 @@ void c_handler(char c, int *len)
 void s_handler(char *str, int *len)
 {
 	int string_len;
+
 	if (str == NULL)
 		str = "(null)";
 	string_len = _strlen(str);
