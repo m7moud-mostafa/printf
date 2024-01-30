@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _printf - write output to stdout, the standard output stream.
@@ -10,11 +11,12 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int len = 0;
+	int *len;
 	int i;
-	char *str;
-	char c;
+	int final_length;
 
+	len = malloc(sizeof(int));
+	*len = 0;
 	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -23,30 +25,22 @@ int _printf(const char *format, ...)
 			switch (format[i + 1])
 			{
 			case 'c':
-				c = va_arg(args, int);
-				write(1, &c, 1);
-				len++;
+				c_handler(va_arg(args, int), len);
 				break;
 			case 's':
-				str = va_arg(args, char *);
-				write(1, str, _strlen(str));
-				len += _strlen(str);
+				s_handler(va_arg(args, char *), len);
 				break;
 			case '%':
-				c = '%';
-				write(1, &c, 1);
-				len++;
+				c_handler('%', len);
 				break;
 			}
 			i++;
 		}
 		else
-		{
-			c = format[i];
-			write(1, &c, 1);
-			len++;
-		}
+			c_handler(format[i], len);
 	}
 	va_end(args);
-	return (len);
+	final_length = *len;
+	free(len);
+	return (final_length);
 }
