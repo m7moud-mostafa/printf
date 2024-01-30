@@ -19,6 +19,14 @@ This project, part of the ALX curriculum, involves creating a custom version of 
 - Your code should use the `Betty` style.
 - No use of the global variables.
 - Maximum 5 functions per file.
+- Functions and macros that allowed to be used:
+  - write
+  - malloc
+  - free
+  - va_start
+  - va_end
+  - va_arg
+  - va_copy
 
 ## Implemented Features
 
