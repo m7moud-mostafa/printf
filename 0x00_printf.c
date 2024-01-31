@@ -35,12 +35,17 @@ int _printf(const char *format, ...)
 			case '%':
 				c_handler('%', &len);
 				break;
+			case 'd':
+				i_handler(va_arg(args, int), &len);
+				break;
+			case 'i':
+				i_handler(va_arg(args, int), &len);
+				break;
 			default:
 				c_handler('%', &len);
 				c_handler(format[i], &len);
 				break;
 			}
-
 		}
 		else
 			c_handler(format[i], &len);
