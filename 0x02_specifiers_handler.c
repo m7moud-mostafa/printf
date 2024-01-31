@@ -74,3 +74,16 @@ void i_handler(int num, int *len)
 	}
 
 }
+
+/**
+ * r_handler - handles the r specifier inside
+ *			   (_printf) function (prints strings)
+ *
+ * @str: string to be printed
+ * @len: the printed length counter
+ */
+void r_handler(char *str, int *len)
+{
+	rev_string(str);
+	s_handler(str, len);
+}
