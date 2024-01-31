@@ -11,7 +11,8 @@ int _printf(const char *format, ...)
 {	va_list args;
 	int len = 0;
 	int i;
-
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
@@ -20,8 +21,7 @@ int _printf(const char *format, ...)
 			while (format[i] == ' ' && format[i] != '\0')
 				i++;
 			if (format[i] == '\0')
-			{	len = -1;
-				break; }
+				return (-1);
 			switch (format[i])
 			{
 			case 'c':
