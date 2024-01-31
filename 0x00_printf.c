@@ -16,8 +16,7 @@ int _printf(const char *format, ...)
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
-		{
-			i++;
+		{	i++;
 			while (format[i] == ' ' && format[i] != '\0')
 				i++;
 			if (format[i] == '\0')
@@ -40,6 +39,8 @@ int _printf(const char *format, ...)
 				break;
 			default:
 				c_handler('%', &len);
+				if (format[i - 1] == ' ')
+					c_handler(' ', &len);
 				c_handler(format[i], &len);
 				break;
 			}
