@@ -8,7 +8,8 @@
  */
 
 int _printf(const char *format, ...)
-{	va_list args;
+{
+	va_list args;
 	int len = 0;
 	int i;
 
@@ -35,6 +36,8 @@ int _printf(const char *format, ...)
 				c_handler('%', &len);
 				break;
 			case 'd':
+				i_handler(va_arg(args, int), &len);
+				break;
 			case 'i':
 				i_handler(va_arg(args, int), &len);
 				break;
