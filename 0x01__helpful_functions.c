@@ -15,3 +15,22 @@ unsigned int _strlen(char *str)
 
 	return (len);
 }
+
+/**
+ * power - calculates base ^ exponent
+ *
+ * @base: the base
+ * @exponent: the exponent
+ * Return: int
+ */
+int power(int base, int exponent)
+{
+	int result = 1;
+
+	while (exponent > 0)
+	{
+		result *= base;
+		--exponent;
+	}
+	return (result);
+}
