@@ -37,9 +37,6 @@ int _printf(const char *format, ...)
 			case 'i':
 				i_handler(va_arg(args, int), &len);
 				break;
-			case 'r':
-				r_handler(va_arg(args, int), &len);
-				break;
 			default:
 				c_handler('%', &len);
 				if (format[i - 1] == ' ')
