@@ -9,5 +9,5 @@ void c_handler(char c, int *len);
 void s_handler(char *str, int *len);
 void i_handler(int num, int *len);
 int power(int base, int exponent);
-void rev_string(char *s);
+
 #endif
