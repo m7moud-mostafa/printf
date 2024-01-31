@@ -18,11 +18,11 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
+			while (format[i] == ' ' && format[i] != '\0')
+				i++;
 			if (format[i] == '\0')
-			{
-				len = -1;
-				break;
-			}
+			{	len = -1;
+				break; }
 			switch (format[i])
 			{
 			case 'c':
@@ -48,5 +48,4 @@ int _printf(const char *format, ...)
 			c_handler(format[i], &len);
 	}
 	va_end(args);
-	return (len);
-}
+	return (len); }
