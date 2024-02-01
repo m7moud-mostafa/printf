@@ -4,7 +4,7 @@
  *
  * @specifier: the character after the % sign
  * @args: va_list arguments
- * @len: length character 
+ * @len: length character
  */
 void handle_specifier(char specifier, va_list args, int *len)
 {
@@ -24,8 +24,6 @@ void handle_specifier(char specifier, va_list args, int *len)
 			break;
 		default:
 			c_handler('%', len);
-			/*if (format[i - 1] == ' ')
-				c_handler(' ', len);*/
 			c_handler(specifier, len);
 			break;
 	}
