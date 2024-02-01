@@ -1,5 +1,6 @@
 #include "main.h"
 
+
 /**
  * _printf - write output to stdout, the standard output stream.
  * @format: creates the string that will be printed and formatted
@@ -23,27 +24,7 @@ int _printf(const char *format, ...)
 				i++;
 			if (format[i] == '\0')
 				return (-1);
-			switch (format[i])
-			{	case 'c':
-					c_handler(va_arg(args, int), &len);
-					break;
-				case 's':
-					s_handler(va_arg(args, char *), &len);
-					break;
-				case '%':
-					c_handler('%', &len);
-					break;
-				case 'd':
-				case 'i':
-					i_handler(va_arg(args, int), &len);
-					break;
-				default:
-					c_handler('%', &len);
-					if (format[i - 1] == ' ')
-						c_handler(' ', &len);
-					c_handler(format[i], &len);
-					break;
-			}
+			handle_specifier(format[i], args, &len);
 		}
 		else
 			c_handler(format[i], &len);

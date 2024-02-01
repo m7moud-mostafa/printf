@@ -1,5 +1,37 @@
 #include "main.h"
-#include <stdio.h>
+/**
+ * handle_specifier - this function choses the appropriate specifier handler
+ *
+ * @specifier: the character after the % sign
+ * @args: va_list arguments
+ * @len: length character 
+ */
+void handle_specifier(char specifier, va_list args, int *len)
+{
+	switch (specifier)
+	{	case 'c':
+			c_handler(va_arg(args, int), len);
+			break;
+		case 's':
+			s_handler(va_arg(args, char *), len);
+			break;
+		case '%':
+			c_handler('%', len);
+			break;
+		case 'd':
+		case 'i':
+			i_handler(va_arg(args, int), len);
+			break;
+		default:
+			c_handler('%', len);
+			/*if (format[i - 1] == ' ')
+				c_handler(' ', len);*/
+			c_handler(specifier, len);
+			break;
+	}
+}
+
+
 /**
  * c_handler - handles the c specifier inside (_printf) function
  *			   and print single characters
